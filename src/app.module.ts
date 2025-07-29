@@ -50,7 +50,12 @@ dotenv.config();
 
     McpModule.forRoot({
       name: 'my-mcp-server',
-      version: '1.0.0',
+      version: '1.0.0',      
+      streamableHttp: {
+        enableJsonResponse: false,
+        sessionIdGenerator: () => randomUUID(),
+        statelessMode: false,
+      },
       guards: [McpAuthJwtGuard],
     }),
   ],
